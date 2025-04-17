@@ -4,9 +4,55 @@ import Link from "next/link";
 import { Instagram, Facebook, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
+const categories = [
+    {
+        name: "Men",
+        path: "/collection/men"
+    },
+    {
+        name: "Women",
+        path: "/collection/women"
+    },
+    {
+        name: "Kids",
+        path: "/collection/kids"
+    },
+    {
+        name: "Casual",
+        path: "/collection/casual"
+    },
+    {
+        name: "Formal",
+        path: "/collection/formal"
+    }
+]
+
+const information = [
+    {
+        name: "About Us",
+        path: "/about"
+    },
+    {
+        name: "Contact Us",
+        path: "/contact"
+    },
+    {
+        name: "Terms & Conditions",
+        path: "/terms"
+    },
+    {
+        name: "Privacy Policy",
+        path: "/privacy"
+    },
+    {
+        name: "Shipping & Returns",
+        path: "/shipping"
+    }
+]
+
 const Footer = () => {
   return (
-    <footer className="bg-blue-950 text-white pt-16 pb-8">
+    <footer className="bg-black text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
@@ -32,31 +78,13 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-medium">Categories</h4>
             <ul className="space-y-2">
-              <li>
-                <Link href="/collection/men" className="text-white/80 hover:text-white transition-colors">
-                  Men
-                </Link>
-              </li>
-              <li>
-                <Link href="/collection/women" className="text-white/80 hover:text-white transition-colors">
-                  Women
-                </Link>
-              </li>
-              <li>
-                <Link href="/collection/kids" className="text-white/80 hover:text-white transition-colors">
-                  Kids
-                </Link>
-              </li>
-              <li>
-                <Link href="/collection/casual" className="text-white/80 hover:text-white transition-colors">
-                  Casual
-                </Link>
-              </li>
-              <li>
-                <Link href="/collection/formal" className="text-white/80 hover:text-white transition-colors">
-                  Formal
-                </Link>
-              </li>
+                {categories.map((cat, index) => (
+                    <li key={index}>
+                        <Link href={cat.path} className="text-white/80 hover:text-white transition-colors">
+                            {cat.name}
+                        </Link>
+                    </li>
+                ))}
             </ul>
           </div>
 
@@ -64,31 +92,13 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-medium">Information</h4>
             <ul className="space-y-2">
-              <li>
-                <Link href="/about" className="text-white/80 hover:text-white transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-white/80 hover:text-white transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-white/80 hover:text-white transition-colors">
-                  Terms & Conditions
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="text-white/80 hover:text-white transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/shipping" className="text-white/80 hover:text-white transition-colors">
-                  Shipping & Returns
-                </Link>
-              </li>
+                {information.map((info, index) => (
+                    <li key={index}>
+                        <Link href={info.path} className="text-white/80 hover:text-white transition-colors">
+                            {info.name}
+                        </Link>
+                    </li>
+                ))}
             </ul>
           </div>
 
